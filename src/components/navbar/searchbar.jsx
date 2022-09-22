@@ -10,19 +10,20 @@ const Searchbar = ({ onSearch, onSelect, list }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
+    <div className="nav-div">
+      <form onSubmit={onSubmit} className="nav-form">
         <input
+          className="nav-input"
           type="text"
           value={search}
           placeholder="Search city..."
           onChange={(e) => setSearch(e.target.value)}
         />
-        <input type="submit" />
+        <input type="submit" value="Search" className="nav-button" />
       </form>
-      <ul>
+      <ul className="nav-ul">
         {list.map((e) => (
-          <li id={e.lat} onClick={() => onSelect(e.lat, e.lon)}>
+          <li key={e.lat} onClick={() => onSelect(e.lat, e.lon)}>
             {e.name} - {e.state && e.state} - {e.country}
           </li>
         ))}

@@ -4,10 +4,10 @@ import Home from "./components/home/home";
 import Nav from "./components/navbar/nav";
 
 function App() {
+  const ApiKey = process.env.REACT_APP_APIKEY;
+
   const [cities, setCities] = useState([]);
   const [list, setList] = useState([]);
-
-  const ApiKey = "06964263985421b275424fb45015f2a8";
 
   function onSearch(city) {
     fetch(
@@ -21,10 +21,11 @@ function App() {
 
   function onSelect(lat, lon) {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${ApiKey}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${ApiKey}&units=metric`
     )
       .then((e) => e.json())
       .then((r) => {
+        console.log(r);
         const newCity = {
           id: r.id,
           name: r.name,

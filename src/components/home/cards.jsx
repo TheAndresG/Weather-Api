@@ -1,17 +1,18 @@
 import React from "react";
+import "./cards.css";
 
 const Card = ({ name, min, max }) => {
   return (
-    <div>
+    <div className="card-cont">
       <h4>{name}</h4>
-      <div>
+      <div className="card-body">
         <div>
           <p>Min</p>
-          <p>{min}</p>
+          <p>{min}°</p>
         </div>
         <div>
           <p>Max</p>
-          <p>{max}</p>
+          <p>{max}°</p>
         </div>
         <div>Img</div>
       </div>
