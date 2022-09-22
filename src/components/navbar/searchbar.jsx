@@ -6,7 +6,6 @@ const Searchbar = ({ onSearch, onSelect, list }) => {
   let onSubmit = (e) => {
     e.preventDefault();
     onSearch(search);
-    console.log(list);
   };
 
   return (

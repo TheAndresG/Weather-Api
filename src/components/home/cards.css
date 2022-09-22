@@ -25,6 +25,40 @@
 
   background-color: rgba(0, 255, 255, 0.199);
 }
+.card-close-cont {
+  height: 0;
+  width: 70%;
+}
+.card-close {
+  position: relative;
+  left: 100%;
+  top: -9px;
+  z-index: 5;
+  border: 1px black outset;
+  border-radius: 30px;
+  background-color: darkgray;
+  padding: 0px 7px;
+  font-size: 1.4rem;
+
+  box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.card-close:hover {
+  background-color: rgb(255, 0, 0);
+
+  box-shadow: 1px 0px 6px 2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 0px 6px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 0px 6px 2px rgba(0, 0, 0, 0.75);
+}
+.card-close:active {
+  transition: all 0.1s;
+
+  background-color: rgb(218, 0, 0);
+}
+
 .card-body {
   display: flex;
   width: 100%;

@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Home from "./components/home/home";
 import Nav from "./components/navbar/nav";
+import { GetStogare } from "./components/functions/index";
 
 function App() {
   const ApiKey = process.env.REACT_APP_APIKEY;
 
   const [cities, setCities] = useState([]);
   const [list, setList] = useState([]);
+
+  useEffect(() => {
+    if (GetStogare("cities") !== null) {
+      setCities(JSON.parse(GetStogare("cities")));
+    }
+  }, []);
 
   function onSearch(city) {
     fetch(
@@ -39,8 +46,9 @@ function App() {
           lat: r.coord.lat,
           lon: r.coord.lon,
         };
-        setCities((oldCities) => [...oldCities, newCity]);
+        setCities([...cities, newCity]);
         setList([]);
+        localStorage.setItem("cities", JSON.stringify([...cities, newCity]));
       });
   }
 

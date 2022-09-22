@@ -1,9 +1,12 @@
 import React from "react";
 import "./cards.css";
 
-const Card = ({ name, min, max }) => {
+const Card = ({ name, min, max, id }) => {
   return (
-    <div className="card-cont">
+    <div id={id} className="card-cont">
+      <div className="card-close-cont">
+        <button className="card-close">X</button>
+      </div>
       <h4>{name}</h4>
       <div className="card-body">
         <div>
