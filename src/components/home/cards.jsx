@@ -1,11 +1,22 @@
 import React from "react";
 import "./cards.css";
 
-const Card = ({ name, min, max, id }) => {
+const Card = ({ name, min, max, id, cities, setCities }) => {
+  const Cerrar = (e) => {
+    e.preventDefault();
+    console.log("hola");
+    setCities(cities.filter((h) => id !== h.id));
+    localStorage.setItem(
+      "cities",
+      JSON.stringify(cities.filter((h) => id !== h.id))
+    );
+  };
   return (
     <div id={id} className="card-cont">
       <div className="card-close-cont">
-        <button className="card-close">X</button>
+        <button onClick={(e) => Cerrar(e)} className="card-close">
+          X
+        </button>
       </div>
       <h4>{name}</h4>
       <div className="card-body">

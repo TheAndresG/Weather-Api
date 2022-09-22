@@ -55,7 +55,7 @@ function App() {
   return (
     <div className="App">
       <Nav onSelect={onSelect} onSearch={onSearch} list={list} />
-      <Home cities={cities} />
+      <Home cities={cities} setCities={setCities} />
     </div>
   );
 }
