@@ -4,6 +4,7 @@ const Searchbar = ({ onSearch, onSelect, list }) => {
   const [search, setSearch] = useState("");
 
   let onSubmit = (e) => {
+    if (search == "") return;
     e.preventDefault();
     onSearch(search);
   };
@@ -23,7 +24,7 @@ const Searchbar = ({ onSearch, onSelect, list }) => {
       <ul className="nav-ul">
         {list.map((e) => (
           <li key={e.lat} onClick={() => onSelect(e.lat, e.lon)}>
-            {e.name} - {e.state && e.state} - {e.country}
+            {e.name} - {e.state && e.state + "-"} {e.country}
           </li>
         ))}
       </ul>

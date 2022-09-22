@@ -27,17 +27,17 @@
   border-radius: 0 20px 20px 0;
   border: none;
 }
-.nav-div ul {
+.nav-ul {
   margin: 0;
   position: relative;
   width: 14vw;
-
+  z-index: 999;
   background-color: aqua;
   padding-left: 1px;
 
   list-style: none;
 }
 
-.nav-div ul li:hover {
+.nav-ul li:hover {
   background-color: red;
 }

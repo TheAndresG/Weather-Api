@@ -46,6 +46,9 @@ function App() {
           lat: r.coord.lat,
           lon: r.coord.lon,
         };
+        if (cities.includes((e) => e.id == newCity.id)) {
+          return alert("Ya hay una ciudad con esas Coordenadas");
+        }
         setCities([...cities, newCity]);
         setList([]);
         localStorage.setItem("cities", JSON.stringify([...cities, newCity]));
