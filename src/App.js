@@ -9,6 +9,7 @@ function App() {
 
   const [cities, setCities] = useState([]);
   const [list, setList] = useState([]);
+  const [favs, setFavs] = useState([]);
 
   useEffect(() => {
     if (GetStogare("cities") !== null) {
@@ -32,7 +33,14 @@ function App() {
     )
       .then((e) => e.json())
       .then((r) => {
-        console.log(r);
+        setList([]);
+
+        if (
+          cities.find((e) => e.id === r.id) !== undefined ||
+          favs.find((e) => e.id === r.id) !== undefined
+        ) {
+          return alert("Ya hay una ciudad con esas Coordenadas");
+        }
         const newCity = {
           id: r.id,
           name: r.name,
@@ -46,11 +54,8 @@ function App() {
           lat: r.coord.lat,
           lon: r.coord.lon,
         };
-        if (cities.includes((e) => e.id == newCity.id)) {
-          return alert("Ya hay una ciudad con esas Coordenadas");
-        }
+
         setCities([...cities, newCity]);
-        setList([]);
         localStorage.setItem("cities", JSON.stringify([...cities, newCity]));
       });
   }
@@ -58,7 +63,12 @@ function App() {
   return (
     <div className="App">
       <Nav onSelect={onSelect} onSearch={onSearch} list={list} />
-      <Home cities={cities} setCities={setCities} />
+      <Home
+        cities={cities}
+        setCities={setCities}
+        favs={favs}
+        setFavs={setFavs}
+      />
     </div>
   );
 }

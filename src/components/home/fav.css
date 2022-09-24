@@ -1,0 +1,13 @@
+.card-fav-cont {
+  margin: 10px;
+  padding: 3px;
+  border: 1px red solid;
+}
+.card-fav-display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+}
