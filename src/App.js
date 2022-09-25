@@ -56,7 +56,7 @@ function App() {
         };
 
         setCities([...cities, newCity]);
-        localStorage.setItem("cities", JSON.stringify([...cities, newCity]));
+        // localStorage.setItem("cities", JSON.stringify([...cities, newCity]));
       });
   }
 

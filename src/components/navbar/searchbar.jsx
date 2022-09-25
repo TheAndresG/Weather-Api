@@ -4,8 +4,8 @@ const Searchbar = ({ onSearch, onSelect, list }) => {
   const [search, setSearch] = useState("");
 
   let onSubmit = (e) => {
-    if (search === "") return;
     e.preventDefault();
+    if (search === "") return;
     onSearch(search);
   };
 

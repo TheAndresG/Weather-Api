@@ -5,7 +5,7 @@ import "./fav.css";
 const Fav = ({ favs, cities, setFavs, setCities }) => {
   return (
     <div className="card-fav-cont">
-      <h4>Favoritos</h4>
+      <h4>Favorites</h4>
       <div className="card-fav-display">
         {favs.map((e) => (
           <Card
@@ -15,6 +15,7 @@ const Fav = ({ favs, cities, setFavs, setCities }) => {
             name={e.name}
             min={e.min}
             max={e.max}
+            img={e.img}
             id={e.id}
             favs={favs}
             setFavs={setFavs}
